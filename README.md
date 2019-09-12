@@ -1,13 +1,9 @@
-# hlf-ecommerce
-Simple e-commerce application on Hyperledger Fabric with nodejs chaincode for demonstration only..
+## Quick test template for your chaincode..
 
-This Repository uses ```fabric-samples/basic-network``` All Rights Reserved for Contributors...
+Simply Put your chaincode file in ```chaincode/newcc``` directory 
+
+Go to ```client``` directory and run
 
 ```
-git clone https://github.com/Salmandabbakuti/hlf-ecommerce.git
-
-cd hlf-ecommerce/client
-
-./start.sh
-
+./start.sh #modify with your functions
 ```
