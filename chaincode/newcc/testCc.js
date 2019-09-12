@@ -1,7 +1,6 @@
 'use strict';
 const shim = require('fabric-shim');
 const util = require('util');
-
 let Chaincode = class {
  
     async Init(stub) {
@@ -29,23 +28,27 @@ let Chaincode = class {
      }
   
 async getGlobal(stub,args) {
-       await stub.putState(args[0],Buffer.from(JSON.stringify(args[1]))); 
-let value= await stub.getState(args[0]); 
-let result= value.toString();
+
 let submitter= await stub.getCreator();
+let msp = Buffer.from(submitter.mspid);
+let certificate=submitter.getIdBytes().toString('utf8')
 let channelID= await stub.getChannelID();
-let args=await stub.getArgs();
-let keyHistory=await stub.getHistoryForKey(args[0]);
+let parms=await stub.getArgs();
 let txId= await stub.getTxID();
 let timeStamp= await stub.getTxTimestamp();
-console.log(value);
-console.log(result);
-console.log(Submitter);
-console.log(channelID);
-console.log(args);
-console.log(keyHistory);
-console.log(txId);
-console.log(timeStamp);
+const time = new Date(timeStamp.getSeconds() * 1000).toISOString();
+let signedProposal =stub.getSignedProposal();
+let time2 =timeStamp.getSeconds();
+//Console
+console.log('submitter MSP is ..'+msp);
+console.log('submitter certificate is ..'+certificate);
+console.log('channel Id..'+channelID);
+console.log('function args..'+parms);
+console.log('transaction Id is..'+txId);
+console.log('Transaction Proposal Time is..'+time);
+console.log('Signed Proposal is..'+signedProposal);
+console.log('timestamp is..'+time2);
+
 
     }
 }
