@@ -40,7 +40,7 @@ let timeStamp= await stub.getTxTimestamp();
 // return Buffer.from(timeStamp);
 const timestamp = new Date(stub.getTxTimestamp().getSeconds() * 1000).toISOString();
 let time2 =timestamp.low;
-let time3 =timestamp.seconds.low;
+let time3 =timestamp.getSeconds();
 
 
 console.log('submitter MSP is ..'+msp);
