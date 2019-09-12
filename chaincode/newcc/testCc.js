@@ -30,13 +30,14 @@ let Chaincode = class {
   
 async getGlobal(stub,args) {
 let count=++id;
-await stub.putState(args[0],Buffer.from(JSON.stringify(count))); 
+await stub.putState(args[0],count); 
 let value= await stub.getState(args[0]); 
 let result= value.toString();
 let submitter= await stub.getCreator();
 let channelID= await stub.getChannelID();
 let parms=await stub.getArgs();
 let keyHistory=await stub.getHistoryForKey(args[0]);
+let keys= JSON.parse(keyHistory);
 let txId= await stub.getTxID();
 let timeStamp= await stub.getTxTimestamp();
 console.log('current buffer value is'+value);
@@ -44,7 +45,7 @@ console.log('current count'+result);
 console.log('submitter is'+submitter);
 console.log('channel Id'+channelID);
 console.log('function args'+parms);
-console.log('key history'+keyHistory);
+console.log('key history'+keys);
 console.log('transaction Id is'+txId);
 console.log('timestamp is'+timeStamp);
 
