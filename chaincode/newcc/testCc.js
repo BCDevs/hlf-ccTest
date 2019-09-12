@@ -39,6 +39,9 @@ let txId= await stub.getTxID();
 let timeStamp= await stub.getTxTimestamp();
 // return Buffer.from(timeStamp);
 const timestamp = new Date(stub.getTxTimestamp().getSeconds() * 1000).toISOString();
+let time2 =timestamp.low;
+let time3 =timestamp.seconds.low;
+
 
 console.log('submitter MSP is ..'+msp);
 console.log('submitter certificate is ..'+certificate);
@@ -46,6 +49,8 @@ console.log('channel Id..'+channelID);
 console.log('function args..'+parms);
 console.log('transaction Id is..'+txId);
 console.log('timestamp is..'+timestamp);
+console.log('timestamp2 is..'+time2);
+console.log('timestamp3 is..'+time3);
 
     }
 }
