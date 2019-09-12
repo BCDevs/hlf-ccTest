@@ -39,10 +39,7 @@ let timeStamp= await stub.getTxTimestamp();
 const time = new Date(timeStamp.getSeconds() * 1000).toISOString();
 let signedProposal =stub.getSignedProposal();
 let time2 =timeStamp.getSeconds();
-
-
-
-
+//Console
 console.log('submitter MSP is ..'+msp);
 console.log('submitter certificate is ..'+certificate);
 console.log('channel Id..'+channelID);
