@@ -31,13 +31,15 @@ let Chaincode = class {
 async getGlobal(stub,args) {
 
 let submitter= await stub.getCreator();
-let user = Buffer.from(submitter.mspid);
+let msp = Buffer.from(submitter.mspid);
+let certificate=submitter.getIdBytes().toString('utf8')
 let channelID= await stub.getChannelID();
 let parms=await stub.getArgs();
 let txId= await stub.getTxID();
 let timeStamp= await stub.getTxTimestamp();
 // return Buffer.from(timeStamp);
-console.log('submitter is..'+user);
+console.log('submitter MSP is ..'+msp);
+console.log('submitter certificate is ..'+certificate);
 console.log('channel Id..'+channelID);
 console.log('function args..'+parms);
 console.log('transaction Id is..'+txId);
