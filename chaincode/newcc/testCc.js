@@ -39,8 +39,9 @@ let txId= await stub.getTxID();
 let timeStamp= await stub.getTxTimestamp();
 // return Buffer.from(timeStamp);
 const timestamp = new Date(stub.getTxTimestamp().getSeconds() * 1000).toISOString();
-let time2 =timestamp.low;
-let time3 =timestamp.getSeconds();
+let time2 =timeStamp.low;
+let time3 =timeStamp.getSeconds();
+
 
 
 console.log('submitter MSP is ..'+msp);
