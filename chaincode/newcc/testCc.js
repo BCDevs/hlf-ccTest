@@ -30,7 +30,7 @@ let Chaincode = class {
   
 async getGlobal(stub,args) {
 let count=++id;
-await stub.putState(args[0],count); 
+await stub.putState(args[0],JSON.stringify(count)); 
 let value= await stub.getState(args[0]); 
 let result= value.toString();
 let submitter= await stub.getCreator();
