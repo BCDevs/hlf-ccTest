@@ -34,15 +34,15 @@ let submitter= await stub.getCreator();
 let channelID= await stub.getChannelID();
 let parms=await stub.getArgs();
 let keyHistory=await stub.getHistoryForKey(args[0]);
-let keys= JSON.parse(keyHistory);
 let txId= await stub.getTxID();
 let timeStamp= await stub.getTxTimestamp();
+let time=new Date(timeStamp);
 console.log('submitter is'+submitter);
 console.log('channel Id'+channelID);
 console.log('function args'+parms);
 console.log('key history'+keys);
 console.log('transaction Id is'+txId);
-console.log('timestamp is'+timeStamp);
+console.log('timestamp is'+time);
 
     }
 }
