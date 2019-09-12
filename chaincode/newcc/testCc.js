@@ -41,7 +41,7 @@ let txId= await stub.getTxID();
 let timeStamp= await stub.getTxTimestamp();
 console.log('current buffer value is'+value);
 console.log('current count'+result);
-console.log('submitter is'+Submitter);
+console.log('submitter is'+submitter);
 console.log('channel Id'+channelID);
 console.log('function args'+parms);
 console.log('key history'+keyHistory);
