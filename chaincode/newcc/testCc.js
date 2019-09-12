@@ -38,7 +38,6 @@ let parms=await stub.getArgs();
 let txId= await stub.getTxID();
 let timeStamp= await stub.getTxTimestamp();
 // return time in India UTC+5.30hr;
-let localTime=timeStamp.getSeconds()+19080;
 const timestamp = new Date(timeStamp.getSeconds() * 1000).toISOString();
 let signedProposal =stub.getSignedProposal();
 
