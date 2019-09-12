@@ -39,9 +39,13 @@ let txId= await stub.getTxID();
 let timeStamp= await stub.getTxTimestamp();
 // return time in India UTC+5.30hr;
 let localTime=timeStamp.getSeconds()+19080;
-const timestamp = new Date(localTime * 1000).toISOString();
+const timestamp = new Date(timeStamp.getSeconds() * 1000).toISOString();
 let signedProposal =stub.getSignedProposal();
+
 let time3 =timeStamp.getSeconds();
+let localTimeStamp= time3+19080;
+let localTime=new Date(localTimeStamp * 1000).toISOString();
+
 
 
 
@@ -53,6 +57,8 @@ console.log('transaction Id is..'+txId);
 console.log('timestamp is..'+timestamp);
 console.log('Signed Proposal is..'+signedProposal);
 console.log('timestamp3 is..'+time3);
+console.log('localTime is..'+localTime);
+
 
     }
 }
