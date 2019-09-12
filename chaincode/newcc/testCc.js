@@ -1,7 +1,7 @@
 'use strict';
 const shim = require('fabric-shim');
 const util = require('util');
-
+let id=0;
 let Chaincode = class {
  
     async Init(stub) {
@@ -29,7 +29,8 @@ let Chaincode = class {
      }
   
 async getGlobal(stub,args) {
-       await stub.putState(args[0],Buffer.from(JSON.stringify(args[1]))); 
+let count=++id;
+await stub.putState(args[0],Buffer.from(JSON.stringify(count))); 
 let value= await stub.getState(args[0]); 
 let result= value.toString();
 let submitter= await stub.getCreator();
@@ -38,14 +39,14 @@ let args=await stub.getArgs();
 let keyHistory=await stub.getHistoryForKey(args[0]);
 let txId= await stub.getTxID();
 let timeStamp= await stub.getTxTimestamp();
-console.log(value);
-console.log(result);
-console.log(Submitter);
-console.log(channelID);
-console.log(args);
-console.log(keyHistory);
-console.log(txId);
-console.log(timeStamp);
+console.log('current buffer value is'+value);
+console.log('current count'+result);
+console.log('submitter is'+Submitter);
+console.log('channel Id'+channelID);
+console.log('function args'+args);
+console.log('key history'+keyHistory);
+console.log('transaction Id is'+txId);
+console.log('timestamp is'+timeStamp);
 
     }
 }
