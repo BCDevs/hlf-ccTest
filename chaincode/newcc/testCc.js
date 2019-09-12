@@ -38,12 +38,14 @@ let parms=await stub.getArgs();
 let txId= await stub.getTxID();
 let timeStamp= await stub.getTxTimestamp();
 // return Buffer.from(timeStamp);
+const timestamp = new Date(stub.getTxTimestamp().getSeconds() * 1000).toISOString();
+
 console.log('submitter MSP is ..'+msp);
 console.log('submitter certificate is ..'+certificate);
 console.log('channel Id..'+channelID);
 console.log('function args..'+parms);
 console.log('transaction Id is..'+txId);
-//console.log('timestamp is..'+time);
+console.log('timestamp is..'+timestamp);
 
     }
 }
