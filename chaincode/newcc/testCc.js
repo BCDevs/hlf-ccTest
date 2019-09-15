@@ -48,9 +48,19 @@ console.log('transaction Id is..'+txId);
 console.log('Transaction Proposal Time is..'+time);
 console.log('Signed Proposal is..'+signedProposal);
 console.log('timestamp is..'+time2);
+      
+       }
 
+async put(stub,args){
 
-    }
+await stub.putState(args[0],Buffer.from(args[1]));
+console.log('Transaction Submitted');
+       }
+async get(stub,args){
+const result=await stub.getState(args[0]);
+ console.log(result);
+     }
+
 }
 
 shim.start(new Chaincode());
