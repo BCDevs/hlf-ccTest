@@ -58,7 +58,7 @@ console.log('Transaction Submitted');
        }
 async get(stub,args){
 const result=await stub.getState(args[0]);
- console.log(result);
+ console.log(result.toString());
      }
 async addMarks(stub, args) {
       if (args.length != 6) {
@@ -86,9 +86,7 @@ async getMarks(stub, args) {
     
 
     let marksAsBytes = await stub.getState(args[0]); 
-    if (!marksAsBytes || marksAsBytes.toString().length <= 0) {
-      throw new Error('Candidate with this Id does not exist: ');
-    }
+    
     console.log(marksAsBytes.toString());
     return marksAsBytes;
   }
