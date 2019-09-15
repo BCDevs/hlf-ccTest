@@ -52,8 +52,9 @@ console.log('timestamp is..'+time2);
        }
 
 async put(stub,args){
+let value=args[0];
 
-await stub.putState(args[0],Buffer.from(args[1]));
+await stub.putState(args[0],Buffer.from(value.toString()));
 console.log('Transaction Submitted');
        }
 async get(stub,args){
