@@ -60,6 +60,38 @@ async get(stub,args){
 const result=await stub.getState(args[0]);
  console.log(result);
      }
+async addMarks(stub, args) {
+      if (args.length != 6) {
+      throw new Error('Incorrect number of arguments. Expecting 6');
+        }
+console.info('============= Adding Marks.. ===========');
+
+        const marks = {
+            physics:args[1],
+            chemistry:args[2],
+            maths:args[3],
+            biology:args[4],
+            docType:'marks',
+            social:args[5]
+          };
+
+        await stub.putState(args[0], Buffer.from(JSON.stringify(marks)));
+        console.info('=============Marks Added with an Id of'+args[0]);
+    }
+
+async getMarks(stub, args) {
+    if (args.length != 1) {
+      throw new Error('Incorrect number of arguments. Expecting 1');
+    }
+    
+
+    let marksAsBytes = await stub.getState(args[0]); 
+    if (!marksAsBytes || marksAsBytes.toString().length <= 0) {
+      throw new Error('Candidate with this Id does not exist: ');
+    }
+    console.log(marksAsBytes.toString());
+    return marksAsBytes;
+  }
 
 }
 
