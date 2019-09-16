@@ -59,9 +59,8 @@ console.log('Transaction Submitted');
        }
 async get(stub,args){
 const result=await stub.getState(args[0]);
- let json ={};
-json.name=args[0];
-json.value=result.toString();
+ let msg =args[0]+' value is '+result;
+return shim.success(Buffer.from(msg));
 console.log(json);
      }
 async addMarks(stub, args) {
