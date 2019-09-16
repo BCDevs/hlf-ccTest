@@ -59,7 +59,10 @@ console.log('Transaction Submitted');
        }
 async get(stub,args){
 const result=await stub.getState(args[0]);
- console.log(result);
+ let json ={};
+json.name=args[0];
+json.value=result.toString();
+console.log(json);
      }
 async addMarks(stub, args) {
       if (args.length != 6) {
