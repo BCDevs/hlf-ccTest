@@ -60,8 +60,7 @@ console.log('Transaction Submitted');
 async get(stub,args){
 const result=await stub.getState(args[0]);
  let msg =args[0]+' value is '+result;
-return shim.success(Buffer.from(msg));
-console.log(json);
+return shim.success(msg);
      }
 async addMarks(stub, args) {
       if (args.length != 6) {
