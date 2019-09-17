@@ -43,11 +43,11 @@ if (credentialsAsBytes || credentialsAsBytes.toString().length <= 0) {
           };
 
     await stub.putState(args[0], Buffer.from(JSON.stringify(credentials)));
-    console.info('*Signup Successfull..Your Username is  +args[0]);
+    console.info('*Signup Successfull..Your Username is  '+args[0]);
    
         }
-console.log("UserName is already taken..!')
-console.info("UserName is already taken..!')
+console.log('UserName is already taken..!')
+console.info('UserName is already taken..!')
  
 
 }
