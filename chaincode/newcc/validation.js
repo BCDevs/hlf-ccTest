@@ -42,7 +42,6 @@ if (!credentialsAsBytes || credentialsAsBytes.toString().length <= 0) {
         }
      else {
      console.log('UserName is already taken..!')
-     console.info('UserName is already taken..!')
          }
     }
 
