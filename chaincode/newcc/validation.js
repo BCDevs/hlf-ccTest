@@ -54,6 +54,7 @@ async login(stub, args) {
     let userName=args[0];
     let password=args[1];
     let credentialsAsBytes = await stub.getState(args[0]); 
+    let credentials= JSON.parse(credentialsAsBytes.toString());
 if (!credentialsAsBytes || credentialsAsBytes.toString().length <= 0) {
     throw new Error('Incorrect Username..!');
          
@@ -64,7 +65,6 @@ if (password!=credentials.password) {
         }
 // Functions go here after signin
 console.log('Login Successfull..✓')
-console.info('Login Successfull..✓')
       }
 
 }
