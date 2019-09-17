@@ -57,15 +57,15 @@ async login(stub, args) {
       throw new Error('Incorrect number of arguments. Expecting 2');
     }
     
-
+    let userName=args[0];
+    let password=args[1];
     let credentialsAsBytes = await stub.getState(args[0]); 
-    
-   let credentials= JSON.parse(credentialsAsBytes);
-    if (args[0] !=credentials.userName) {
+    let credentials= JSON.parse(credentialsAsBytes);
+    if (userName!=credentials.userName) {
       throw new Error('Incorrect Username..!');
     }
 
-if (args[1] !=credentials.password) {
+if (password!=credentials.password) {
       throw new Error('Incorrect Password..!');
     }
 // Functions go here after signin
