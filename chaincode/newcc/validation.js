@@ -41,8 +41,8 @@ if (!credentialsAsBytes || credentialsAsBytes.toString().length <= 0) {
     console.info('*Signup Successfull..Your Username is  '+args[0]);
         }
      else {
-     console.log('UserName is already taken..!')
-         }
+     throw new Error('Username is already taken.!');
+      }
     }
 
 async login(stub, args) {
