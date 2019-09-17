@@ -32,7 +32,7 @@ async signUp(stub, args) {
       throw new Error('Incorrect number of arguments. Expecting 2');
           }
 let credentialsAsBytes = await stub.getState(args[0]); 
-if (credentialsAsBytes || credentialsAsBytes.toString().length <= 0) {
+if (!credentialsAsBytes || credentialsAsBytes.toString().length <= 0) {
   console.info('**Storing Credentials on Blockchain**');
 
         const credentials  = {
@@ -42,13 +42,12 @@ if (credentialsAsBytes || credentialsAsBytes.toString().length <= 0) {
 
     await stub.putState(args[0], Buffer.from(JSON.stringify(credentials)));
     console.info('*Signup Successfull..Your Username is  '+args[0]);
-   
-      }
-else {
-console.log('UserName is already taken..!')
-console.info('UserName is already taken..!')
-     }
-}
+        }
+     else {
+     console.log('UserName is already taken..!')
+     console.info('UserName is already taken..!')
+         }
+    }
 
 
 
