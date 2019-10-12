@@ -57,6 +57,22 @@ console.log('timestamp is..'+time2);
 
 
     }
+async getState(stub, args) {
+
+
+    let patentAsBytes = await ctx.stub.getState(args[0]);
+
+    if (!patentAsBytes || patentAsBytes.toString().length <= 0) {
+      throw new Error('data with this Id Doesnt Exist..!');
+    }
+    else {
+     
+      let jsonData = JSON.parse(patentAsBytes.toString());
+      return JSON.stringify(jsonData);
+      }
+  }
+
+
 }
 
 shim.start(new Chaincode());
