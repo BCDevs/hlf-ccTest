@@ -59,7 +59,7 @@ console.log('timestamp is..'+time2);
 async getState(stub, args) {
 
 
-    let patentAsBytes = await ctx.stub.getState(args[0]);
+    let patentAsBytes = await stub.getState(args[0]);
 
     if (!patentAsBytes || patentAsBytes.toString().length <= 0) {
       throw new Error('data with this Id Doesnt Exist..!');
