@@ -4,12 +4,11 @@ const util = require('util');
 let Chaincode = class {
  
     async Init(stub) {
-     let a= Ord1
      let marks={
        S1:23,
        S2:25
       }
-     await stub.putState(a,Buffer.from(JSON.stringify(marks)));
+     await stub.putState('a',Buffer.from(JSON.stringify(marks)));
     console.info('=========== Instantiated test chaincode ===========');
     return shim.success();
       }
