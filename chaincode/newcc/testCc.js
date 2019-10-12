@@ -3,10 +3,12 @@ const shim = require('fabric-shim');
 const util = require('util');
 let Chaincode = class {
  
-    async Init(stub,s1,s2) {
+    async Init(stub,args) {
+let ret = stub.getFunctionAndParameters();
+    let arg=ret.params;
      let marks={
-       S1:s1,
-       S2:s2
+       S1:arg[0],
+       S2:arg[1]
       }
      await stub.putState('a',Buffer.from(JSON.stringify(marks)));
     console.info('=========== Instantiated test chaincode ===========');
